@@ -5,6 +5,7 @@ import com.project.yuliya.canyouescape.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
 import java.util.List;
 
 @RestController
@@ -25,16 +26,16 @@ public class UsersController {
         return service.getByID(remindID);
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
     @ResponseBody
-    public User saveRemider(@RequestBody User login) {
-        return service.save(login);
+    public User saveUser(@RequestBody User user) {
+        return service.save(user);
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+    /*@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable long id) {
         service.remove(id);
-    }
+    }*/
 
 }

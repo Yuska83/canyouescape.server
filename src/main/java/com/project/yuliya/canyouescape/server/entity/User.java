@@ -10,15 +10,13 @@ import java.sql.Time;
 public class User {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GenericGenerator(name = "increment", strategy = "increment")
     private long id;
 
     @Column(name = "login", nullable = false, length = 30)
     private String login;
-
-    @Column(name = "password", nullable = false, length = 30)
-    private String password;
 
     @Column(name = "time")
     private Time time;
@@ -43,14 +41,6 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Time getTime() {

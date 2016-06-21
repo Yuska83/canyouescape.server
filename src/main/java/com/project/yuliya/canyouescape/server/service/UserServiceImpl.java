@@ -17,15 +17,18 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getByID(long id) {
-        repository.
         return repository.findOne(id);
     }
 
     public User save(User user) {
-        return repository.saveAndFlush(user);
+        return repository.save(user);
     }
 
     public void remove(long id) {
         repository.delete(id);
+    }
+
+    public User remove(User user) {
+        return null;
     }
 }
