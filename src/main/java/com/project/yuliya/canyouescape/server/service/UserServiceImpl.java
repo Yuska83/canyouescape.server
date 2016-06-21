@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getByID(long id) {
+        repository.
         return repository.findOne(id);
     }
 
