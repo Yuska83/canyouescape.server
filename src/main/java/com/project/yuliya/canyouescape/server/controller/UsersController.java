@@ -5,7 +5,6 @@ import com.project.yuliya.canyouescape.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
 import java.util.List;
 
 @RestController
@@ -17,7 +16,7 @@ public class UsersController {
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody
     public List<User> getAllReminders() {
-        return service.getAll();
+        return service.getTopRate();
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
@@ -26,16 +25,17 @@ public class UsersController {
         return service.getByID(remindID);
     }
 
-    @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     @ResponseBody
     public User saveUser(@RequestBody User user) {
-        return service.save(user);
+        return service.saveUser(user);
     }
 
-    /*@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/saveUserTime", method = RequestMethod.POST)
     @ResponseBody
-    public void delete(@PathVariable long id) {
-        service.remove(id);
-    }*/
+    public  void saveUserTime(@RequestBody long id,@RequestBody long time) {
+         service.saveTime(id,time);
+    }
+
 
 }

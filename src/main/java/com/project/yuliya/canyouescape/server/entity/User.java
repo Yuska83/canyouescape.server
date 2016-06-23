@@ -19,8 +19,10 @@ public class User {
     private String login;
 
     @Column(name = "time")
-    private Time time;
+    private long time;
 
+    @Column(name = "idUser")
+    private int idUser;
 
     public User()
     {
@@ -43,11 +45,20 @@ public class User {
         this.login = login;
     }
 
-    public Time getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(long time) {
         this.time = time;
+    }
+
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 }

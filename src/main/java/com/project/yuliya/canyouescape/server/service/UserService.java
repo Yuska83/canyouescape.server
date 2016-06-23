@@ -2,14 +2,15 @@ package com.project.yuliya.canyouescape.server.service;
 
 
 import com.project.yuliya.canyouescape.server.entity.User;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getAll();
+    List<User> getTopRate(Sort sort);
     User getByID(long id);
-    User save(User user);
-    void remove(long id);
-    User remove(User user);
+    User saveUser(User user);
+    void saveTime(long id, long time);
+
 }
