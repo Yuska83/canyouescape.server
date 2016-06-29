@@ -14,13 +14,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository repository;
-    public List<User> getTopRate(Sort sort) {
-        return repository.findAll(sort);
-    }
-
-    public User getByID(long id) {
-        return repository.findOne(id);
-    }
 
     public User saveUser(User user) {
         return repository.save(user);
@@ -29,6 +22,18 @@ public class UserServiceImpl implements UserService {
     public void saveTime(long id, long time) {
         ((User)repository.findOne(id)).setTime(time);
     }
+
+    public List<User> getTopRate(Sort sort) {
+        List<User> allUsers =  repository.findAll(sort);
+        List<User> topRateUsers = allUsers.subList(0,5);
+        return topRateUsers;
+    }
+
+    public User getByID(long id) {
+        return repository.findOne(id);
+    }
+
+
 
 
 }

@@ -3,6 +3,7 @@ package com.project.yuliya.canyouescape.server.controller;
 import com.project.yuliya.canyouescape.server.entity.User;
 import com.project.yuliya.canyouescape.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +14,10 @@ public class UsersController {
     @Autowired
     private UserService service;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/getTopRateUsers", method = RequestMethod.GET)
     @ResponseBody
-    public List<User> getAllReminders() {
-        return service.getTopRate();
+    public List<User> getTopRateUsers() {
+        return service.getTopRate(new Sort("time"));
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
