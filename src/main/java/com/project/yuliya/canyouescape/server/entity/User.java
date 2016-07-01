@@ -53,7 +53,6 @@ public class User {
         this.time = time;
     }
 
-
     public int getIdUser() {
         return idUser;
     }

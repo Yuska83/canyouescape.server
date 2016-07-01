@@ -34,8 +34,9 @@ public class UsersController {
 
     @RequestMapping(value = "/saveUserTime", method = RequestMethod.POST)
     @ResponseBody
-    public  void saveUserTime(@RequestBody long id,@RequestBody long time) {
-         service.saveTime(id,time);
+    public  User saveUserTime(@RequestBody User user)
+    {
+        return service.saveTime(user);
     }
 
 

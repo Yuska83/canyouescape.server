@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
         return repository.save(user);
     }
 
-    public void saveTime(long id, long time) {
-        ((User)repository.findOne(id)).setTime(time);
+    public User saveTime(User user) {
+       return repository.saveAndFlush(user);
     }
 
     public List<User> getTopRate(Sort sort) {

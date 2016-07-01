@@ -11,6 +11,6 @@ public interface UserService {
     List<User> getTopRate(Sort sort);
     User getByID(long id);
     User saveUser(User user);
-    void saveTime(long id, long time);
+    User saveTime(User user);
 
 }
