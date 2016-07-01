@@ -19,8 +19,22 @@ public class UserServiceImpl implements UserService {
         return repository.save(user);
     }
 
-    public User saveTime(User user) {
-       return repository.saveAndFlush(user);
+    public Integer saveTime(User user) {
+        repository.saveAndFlush(user);
+
+        List<User> allUsers =  repository.findAll(new Sort("time"));
+        long idUser = user.getId();
+        Integer rate = -1 ;
+        for (int i = 0; i < allUsers.size() ; i++) {
+
+            if(allUsers.get(i).getId() == idUser)
+            {
+                rate = Integer.valueOf(i+1);
+               break;
+            }
+
+        }
+        return rate;
     }
 
     public List<User> getTopRate(Sort sort) {
@@ -28,12 +42,5 @@ public class UserServiceImpl implements UserService {
         List<User> topRateUsers = allUsers.subList(0,5);
         return topRateUsers;
     }
-
-    public User getByID(long id) {
-        return repository.findOne(id);
-    }
-
-
-
 
 }

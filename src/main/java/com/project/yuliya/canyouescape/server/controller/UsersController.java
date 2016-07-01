@@ -20,11 +20,6 @@ public class UsersController {
         return service.getTopRate(new Sort("time"));
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public User getReminder(@PathVariable("id") long remindID) {
-        return service.getByID(remindID);
-    }
 
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     @ResponseBody
@@ -34,9 +29,10 @@ public class UsersController {
 
     @RequestMapping(value = "/saveUserTime", method = RequestMethod.POST)
     @ResponseBody
-    public  User saveUserTime(@RequestBody User user)
+    public Integer saveUserTime(@RequestBody User user)
     {
-        return service.saveTime(user);
+        Integer i =(Integer)service.saveTime(user);
+        return i;
     }
 
 
