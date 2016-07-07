@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -29,10 +28,8 @@ public class UserServiceImpl implements UserService {
 
             if(allUsers.get(i).getId() == idUser)
             {
-                rate = Integer.valueOf(i+1);
-               break;
+                rate = Integer.valueOf(i+1);break;
             }
-
         }
         return rate;
     }
@@ -42,5 +39,4 @@ public class UserServiceImpl implements UserService {
         List<User> topRateUsers = allUsers.subList(0,5);
         return topRateUsers;
     }
-
 }

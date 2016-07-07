@@ -31,8 +31,8 @@ public class UsersController {
     @ResponseBody
     public Integer saveUserTime(@RequestBody User user)
     {
-        Integer i =(Integer)service.saveTime(user);
-        return i;
+        return (Integer)service.saveTime(user);
+
     }
 
 
