@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserService {
 
     List<User> getTopRate(Sort sort);
-    User saveUser(User user);
+    Long saveUser(User user);
     Integer saveTime(User user);
 
 }

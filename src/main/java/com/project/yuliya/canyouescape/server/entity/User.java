@@ -10,39 +10,48 @@ import java.sql.Time;
 public class User {
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "globalId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@GenericGenerator(name = "increment", strategy = "increment")
-    private long id;
+    private long globalId;
 
-    @Column(name = "login", nullable = false, length = 30)
-    private String login;
+    @Column(name = "localId")
+    private int localId;
+
+    @Column(name = "name", nullable = false, length = 30)
+    private String name;
 
     @Column(name = "time")
     private long time;
-
-    @Column(name = "idUser")
-    private int idUser;
 
     public User()
     {
 
     }
 
-    public long getId() {
-        return id;
+
+    public long getGlobalId() {
+        return globalId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setGlobalId(long globalId) {
+        this.globalId = globalId;
     }
 
-    public String getLogin() {
-        return login;
+    public int getLocalId() {
+        return localId;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLocalId(int localId) {
+        this.localId = localId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getTime() {
@@ -51,13 +60,5 @@ public class User {
 
     public void setTime(long time) {
         this.time = time;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
     }
 }
